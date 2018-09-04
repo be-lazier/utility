@@ -1,0 +1,36 @@
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe id="iframe" scrolling="no" allowtransparency="true" allowfullscreen="true" frameborder="0" width="100%" height="100%"
+        style="background: #000000;"></iframe>
+    <script>
+        function getUrlParam(name, url) {
+            url || (url = location.search.substr(1));
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = url.match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+        var url = getUrlParam('url');
+        if (url == null) {
+            url = 'about:blank';
+        }
+        document.getElementById('iframe').setAttribute('src', decodeURIComponent(url));
+    </script>
+</body>
